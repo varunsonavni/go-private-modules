@@ -17,6 +17,7 @@ type Payload struct {
 	Tag     string `json:"tag" validate:"required"`
 }
 
+// HandleAPIRequest is a handler function for updating helm repository
 func HandleAPIRequest(w http.ResponseWriter, r *http.Request) {
 	log.Println(r.RequestURI)
 	if r.Method != http.MethodPost {
