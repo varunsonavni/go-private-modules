@@ -11,8 +11,8 @@ import (
 	"go.uber.org/zap"
 )
 
-type Payload struct {
-	SvcCode string `json:"svcCode" validate:"required"`
+type payload struct {
+	SvcCode string `json:"svcCode" validate:"required"` // service code for xyz module
 	Env     string `json:"env" validate:"required"`
 	Tag     string `json:"tag" validate:"required"`
 }
@@ -27,7 +27,7 @@ func HandleAPIRequest(w http.ResponseWriter, r *http.Request) {
 	}
 
 	decoder := json.NewDecoder(r.Body)
-	var payload Payload
+	var payload payload
 	err := decoder.Decode(&payload)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
