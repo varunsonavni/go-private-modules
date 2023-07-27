@@ -1,4 +1,4 @@
-package goprivatemodules
+package main
 
 import (
 	"encoding/json"
